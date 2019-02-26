@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link  href="../static/Style.css" th:href="@{/Style.css}" rel="stylesheet" >
+    <title>Curriculum Vitae</title>
+  </head>
+  <body>
+    <header>
+        <h1 th:text="'Curriculum de ' + ${javier.nombre} +' '+ ${javier.apellidoP} +' '+ ${javier.apellidoM}"></h1>
+    </header>
+
+    <section class="Wallpaper">
+    </section>
+
+    <section class="Main">
+
+    
+    <aside class="">
+      <img class="cover" th:src="${javier.dirFoto}" alt="">
+      <p>Contacto </p>
+      <p th:text="'Correo: '+ ${javier.correo}"> </p>
+      <p th:text="'Telefono: '+ ${javier.telefono}"> </p>
+      <p th:text="'Facebook: '+ ${javier.facebook}"> </p>
+    </aside>
+
+    <section class="Content">
+      <article class="">
+        <b><h1>  Tecnico en programación </h1></b>
+        <hr>
+        <p th:text="${javier.introduccion}">
+        </p>
+      </article>
+
+
+      <article>
+        <h1> Experiencia </h1>
+        <ul th:each="exp : ${javier.experiencia}">
+          <li th:text="${exp}" ></li></ul>
+        </ul>
+      </article>
+
+      <article>
+        <h1> Formacion </h1>
+        <ul th:each="for : ${javier.formacion}">
+          <li th:text="${for}" ></li>
+        </ul>
+      </article>
+
+      <article>
+        <h1> Idiomas </h1>
+        <ul th:each="idio : ${javier.idiomas}">
+          <li th:text="${idio}" ></li>
+        </ul>
+      </article>
+
+
+
+    </section>
+  </section>
+
+    <footer>
+      <br>Javier Razo
+      <br>javier.razo@uabc.edu.mx
+    </footer>
+
+  </body>
+</html>
